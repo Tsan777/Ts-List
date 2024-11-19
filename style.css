@@ -1,0 +1,230 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #E0E0E0; /* Light text color */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1F1F1F; /* Darker card background */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #FF9800; /* Soft orange for header */
+}
+
+.task-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+input {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #444; /* Subtle border */
+    border-radius: 4px;
+    background-color: #333; /* Dark input background */
+    color: #E0E0E0; /* Light text color for input */
+    width: 48%;
+    max-width: 300px;
+}
+
+button {
+    padding: 12px 18px;
+    background-color: #FF5722; /* Orange button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #E64A19; /* Darker orange when hovered */
+}
+
+.clear-btn, .import-btn {
+    background-color: #f44336; /* Red button */
+}
+
+.clear-btn:hover, .import-btn:hover {
+    background-color: #e53935; /* Darker red when hovered */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #2C2C2C; /* Dark background for tasks */
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #E0E0E0; /* Light text color for tasks */
+}
+
+ul li span {
+    font-style: italic;
+    color: #B0B0B0; /* Lighter gray for reward */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.topic-group h2 {
+    margin-top: 20px;
+    color: #FF9800; /* Soft orange for topics */
+}
+
+/* Popup Import */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for popup */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the popup is above other elements */
+}
+
+.popup-content {
+    background-color: #333; /* Dark background for popup content */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px; /* Maximum width */
+    width: 80%; /* Make it responsive */
+    color: #E0E0E0; /* Light text color for popup */
+    overflow-y: auto; /* Ensure content scrolls if it overflows */
+    position: relative;
+}
+
+.popup textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #444; /* Dark background for textarea */
+    color: #E0E0E0; /* Light text for textarea */
+    border: 1px solid #555; /* Subtle border for textarea */
+    box-sizing: border-box; /* Make sure padding doesn't affect width */
+    min-height: 100px; /* Minimum height */
+    font-size: 14px;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #FF9800; /* Orange close button */
+    z-index: 2000; /* Ensure close button stays above content */
+}
+
+/* Nút xóa trong popup */
+.delete-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #f44336; /* Red button for delete */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #e53935; /* Darker red when hovered */
+}
+
+/* Responsive Design for Popup Import */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%; /* Popup takes up more width on smaller screens */
+        max-width: 90%; /* Remove the fixed max-width */
+    }
+
+    .popup textarea {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 15px; /* Adjust padding for very small screens */
+    }
+
+    .popup .close {
+        font-size: 18px; /* Make close button smaller */
+    }
+
+    .popup textarea {
+        font-size: 12px; /* Make textarea font smaller */
+    }
+}
+
+/* Thay đổi màu của checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid #444; /* Viền checkbox */
+    background-color: #333; /* Màu nền của checkbox */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Khi checkbox được chọn */
+input[type="checkbox"]:checked {
+    background-color: #FF5722; /* Màu nền khi được chọn */
+    border-color: #FF5722; /* Màu viền khi được chọn */
+}
+
+/* Tạo dấu tích trong checkbox khi được chọn */
+input[type="checkbox"]:checked::after {
+    content: '☑';
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    background-color: #fff; /* Màu dấu tích */
+    border-radius: 2px;
+}
+
+/* Hiệu ứng khi hover checkbox */
+input[type="checkbox"]:hover {
+    border-color: #FF5722; /* Màu viền khi hover */
+}
+
+/* Khi focus vào checkbox (khi nhấn vào) */
+input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5); /* Hiệu ứng khi focus */
+}
+
