@@ -19,11 +19,11 @@ Reward:  đồ ăn vặt
 Topic: 0.0None
 <BREAK>
 Task: Xong MINDMAP ANH
-Reward:  cafe
+Reward: Về Nhà
 Topic: 0.0None
 <BREAK>
 Task: Xonng MINDMAP TOÁN
-Reward:  đồ ăn vặt
+Reward: Về Nhà
 Topic: 0.0None
 <BREAK>
 Task: Máy tính
@@ -60,6 +60,10 @@ Topic: 0.Mua đồ
 <BREAK>
 Task: mua ghế làm bàn
 Reward: trà sữa
+Topic: 0.Mua đồ
+<BREAK>
+Task: tặng ba bàn
+Reward:  đồ ăn vặt
 Topic: 0.Mua đồ
 <BREAK>
 Task: Ôn tập Anh ma trận
