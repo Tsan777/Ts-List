@@ -1,62 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks List System</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="./manifest.json">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Wise</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="./manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker
-              .register('./service-worker.js')
-              .then((registration) => {
-                console.log('Service Worker registered with scope:', registration.scope);
-              })
-              .catch((error) => {
-                console.error('Service Worker registration failed:', error);
-              });
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('./service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('Service Worker registration failed:', error);
           });
-        }
-        
-      </script>
-      
-    <div class="container">
-        <h1>TaskList</h1>
-        <div class="task-input">
-            <input type="text" id="task" placeholder="Enter a new task">
-            <input type="text" id="reward" placeholder="Enter reward (e.g., Voucher)">
-            <input type="text" id="topic" placeholder="Enter topic (e.g., Work)">
-            <button id="add-task">Add Task</button>
-        </div>
+      });
+    }
+  </script>
 
-        <button id="import-btn" class="import-btn">Setting</button>
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <a href="#" class="tab-link active" data-tab="home">Main</a>
+    <a href="#" class="tab-link" data-tab="todo">Todo</a>
+    <a href="#" class="tab-link" data-tab="task">Task</a>
+    <a href="#" class="tab-link" data-tab="goal">Goal</a>
+    <a href="#" class="tab-link" data-tab="queue">Queue</a>
+    <a href="#" class="tab-link" data-tab="note">Note</a>
+  </div>
 
-        <ul id="task-list"></ul>
+  <!-- Nội dung của từng tab -->
+  <div id="home" class="tab-content active">
+    <h1>Main</h1>
+    <!-- Thêm info-container -->
+    <div class="info-container">
+      <!-- Hai label nằm ngang nhau -->
+      <div class="info-top">
+          <label for="name">None</label>
+          <label for="money">0$</label>
+      </div>
+
+      <!-- Label và progress bar ở dưới -->
+      <div class="info-bottom">
+          <label for="level">Lv 0:</label>
+          <progress id="current-progress" value="0" max="100"></progress>
+      </div>
     </div>
-Display flex
-Align items center
-Justify content center
-Flex- direction column
-Justify content center
-    <!-- Import Popup -->
-    <div id="import-popup" class="popup">
-        <div class="popup-content">
-            <span id="close-popup" class="close">&times;</span>
-            <h2>Import Tasks</h2>
-            <div class="import-options">
-                <input type="file" id="import-file" accept=".txt">
-                <textarea id="import-text" placeholder="Or enter task data manually" rows="5"></textarea>
-                <button id="import-submit">Submit</button>
-                <button id="clear-all" class="clear-btn">Clear All Tasks</button>
-            </div>
+    <div class="chart-container">
+        <canvas id="barChart"></canvas>
+        <canvas id="pieChart"></canvas>
+    </div>
+    
+  </div>
+
+  <div id="todo" class="tab-content">
+    <h1>Todo</h1>
+    <div class="todo-container">
+        <div class="todo-input">
+            <input type="text" id="todo-name" placeholder="Enter a new todo">
+            <select id="time">
+                <option value="morning">Morning (7.am -> 12.am)</option>
+                <option value="afternoon">Afternoon (12.am -> 6.pm)</option>
+                <option value="evening">Evening (6.pm -> 6.am)</option>
+            </select>
+            <button id="add-todo">Add Todo</button>
+        </div>
+        <div class="todo-lists">
+            <h2>Morning</h2>
+            <ul id="morning-todo-list"></ul>
+            <h2>Afternoon</h2>
+            <ul id="afternoon-todo-list"></ul>
+            <h2>Evening</h2>
+            <ul id="evening-todo-list"></ul>
         </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+
+  <div id="task" class="tab-content">
+    <h1>TaskList</h1>
+    <div class="task-container">
+      <div class="task-input">
+        <input type="text" id="task-name" placeholder="Enter a new task">
+        <input type="text" id="topic" placeholder="Enter topic (e.g., Work)">
+        <button id="add-task">Add Task</button>
+      </div>
+      <ul id="task-list"></ul>
+    </div>
+  </div>
+
+  <div id="goal" class="tab-content">
+    <h1>Goal</h1>
+    <div class="goal-container">
+      <div class="goal-input">
+        <input type="text" id="goal-name" placeholder="Enter a new goal">
+        <button id="add-goal">Add goal</button>
+      </div>
+      <ul id="goal-list"></ul>
+    </div>
+  </div>
+
+  <div id="queue" class="tab-content">
+    <h1>Queue</h1>
+    <div class="queue-container">
+      <div class="queue-input">
+        <input type="text" id="queue-name" placeholder="Enter a new task">
+        <button id="add-queue">Add queue</button>
+      </div>
+      <ul id="queue-list"></ul>
+    </div>
+  </div>
+  <div id="note" class="tab-content">
+    <h1>Note</h1>
+    <div class="note-container">
+      <div class="note-input">
+        <input type="text" id="note-name" placeholder="Enter note here...">
+        <button id="add-note">Add note</button>
+      </div>
+      <ul id="note-list"></ul>
+    </div>
+  </div>
+
+  <!-- Script tab-bar -->
+  <script>
+    // Chuyển đổi tab
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Loại bỏ class active khỏi tất cả các tab và nội dung
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        // Thêm class active vào tab và nội dung được chọn
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
