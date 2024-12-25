@@ -1,0 +1,6 @@
+name: Trúc Cơ Cảnh
+money: 30$
+level: 5
+value: 0.0
+bar: [0, 0, 0, 0, 0, 0, 0]
+pie: [0, 0, 0, 0]

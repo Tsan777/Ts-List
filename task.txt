@@ -1,0 +1,53 @@
+0.None,0,Sách HDONTHI Anh
+0.None,0,Sách Passage Anh THPT
+0.None,0,code web app
+Toán,1,MINDMAP TOÁN THPT
+Toán,0,Làm Hết ứng dụng MOON
+Toán,0,MINDMAP TOÁN 12
+Toán,0,Sách EMPIRE logic và PTSL
+Toán,0,Sách Logic Moon
+Toán,0,Sách Logic và PTSL HCM
+Toán,0,Sách Toán HDONTHI
+Toán,0,Sách Toán HSA 10,11,12
+Toán,0,Sách Toán MOON 1,2
+Toán,0,example_task
+Anh,0,Sách Anh EMPIRE
+Anh,0,Sách Anh HSA
+Anh,0,Sách Anh dgnl TRANG Anh
+Anh,0,Sách HDONTHI ANH
+Anh,0,Sách Reading Anh THPT
+Anh,0,Sách THPT 2015
+Anh,0,example_task
+App,0,REACT NATIVE Udemy+docs
+App,0,example_task
+Chinese,0,Sách Từ Vựng Tiếng Trung
+Chinese,0,example_task
+Chinese,0,ÔN HSK 1
+DGNL,0,ANH->TOÁN->TIẾNG VIỆT->KHOA HỌC
+DGNL,0,example_task
+Game,0,Game Roblox 27h
+Game,0,Unity
+Game,0,example_task
+IELTS,0,Course IELTS to band 7
+IELTS,0,example_task
+MMO,0,Digital Marketing
+MMO,0,Shopee 15h Course
+MMO,0,example_task
+Mua Đồ,0,Sách MOON Toán Tập 2
+Mua Đồ,0,Thuốc Vitamin B
+Mua Đồ,0,example_task
+Mua Đồ,0,Áo Khoác
+THPT,0,Anh->Toán->Tin->Lý
+THPT,0,example_task
+Tin,0,HTML,CSS
+Tin,0,Sách HDONTHI Tin
+Tin,0,W3school SQL, HTML, CSS, Algo
+Tin,0,example_task
+Tin,0,Ôn Algo Tin python
+Tiếng Việt,0,MINDMAP TIẾNG VIỆT
+Tiếng Việt,0,Sách DGNL Tiếng Việt HCM
+Tiếng Việt,0,Sách Tiếng Việt EMPIRE
+Tiếng Việt,0,Sách Tiếng Việt HSA
+Tiếng Việt,0,example_task
+WEB,0,Front end và React
+WEB,0,example_task
